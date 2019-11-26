@@ -1,0 +1,48 @@
+<!DOCTYPE>
+<html ng-app="courseApp">
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+  <title>COURSE LIST</title>
+</head>
+<body>
+  <div class="container" ng-controller="AppCtrl">
+    <h1>COURSE LIST</h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>COURSECODE</th>         
+          <th>COURSENAME</th>
+          <th>COURSEPERIOD</th>
+          <th>ACTION</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input class="form-control" ng-model="course.code" required/></td>
+          <td><input class="form-control" ng-model="course.name" required/></td>
+          <td><input class="form-control" ng-model="course.period" required/></td>
+          <td><button class="btn btn-primary" ng-click="addCourse()">ADD COURSE</button></td>
+          <td><button class="btn btn-info" ng-click="update()">UPDATE</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">CLEAR</button></td>
+        </tr>
+        <tr ng-repeat="course in courselist">
+          <td>{{course.code}}</td>
+          <td>{{course.name}}</td>
+          <td>{{course.period}}</td>
+          <td><button class="btn btn-danger" ng-click="remove(course._id)">DELETE</button></td>
+          <td><button class="btn btn-warning" ng-click="edit(course._id)">EDIT</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+<script src="controllers/controller.js"></script>
+</body>
+</html>
